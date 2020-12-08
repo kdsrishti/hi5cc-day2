@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>hi5cc-Day2</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/kd-styles.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<small id='text-change-color'>hi5cc</small>
+					<h2>Introduction to<br/>Creative Coding</h2>
+					<h6>day 2</h6>
+					<small>Karan Dudeja, Dec 2020</small>
+					<p class="text-muted">Srishti Manipal Institute of Art, Design and Technology<br/>
+						Interim 2020
+					</p>
+				</section>
+				
+				<section>
+					<section>
+						<h3>p5.js</h3>
+						<p><small class="text-muted">easier to say it without saying 'dot' - p5js</small></p>
+						<p>Basic structure of a sketch:</p>
+						<ul>
+							<li>Setup</li>
+							<li>Draw</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Setup</h2>
+						<p><small class="text-muted">You have to write this at the beginning before you 'draw'</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							// This is a single-line 'comment'. It will NOT disrupt your program.
+							/* This is a multi-line comment.
+							This will also not disrupt your program. You can include as many comments as you like.
+							These help you in understanding your code in more human-like language. */
+							
+							// This is my setup. Setup is "always" written first in p5.js
+							function setup(){
+							  createCanvas(400, 400);
+							}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Draw</h2>
+						<p><small class="text-muted">You have to write this after the 'setup'</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							/* Draw is always written after the "setup" */
+							// draw runs at about 60fps. 'fps' is frames per second
+
+							// This is my draw
+							function draw(){
+							  //make a background with a color-value of 240
+							  background(240);
+							  
+							  //take a color of rgb value of 235, 40, 95, where these specify red, green, blue, respectively.
+							  //the minimum in rgb by default, is 0 and the max is 255
+							  fill(235, 40, 95);
+
+							  //make a circle at point x=200, y=200 of radius=20
+							  circle(200, 200, 20);
+
+							  //make an ellipse at point x=100, y=300 of a=20, b=20
+							  ellipse(100, 300, 20, 20);
+
+							  //make an ellipse at point x=300, y=300 of a=10, b=30
+							  ellipse(300, 300, 10, 30);
+
+							  //make an ellipse at point x=500, y=800 of a=50, b=50
+							  ellipse(500, 800, 50, 50);
+							}
+						</code></pre>
+						<small><a class="text-yellow" href="https://editor.p5js.org/karanDudeja/sketches/16V_aZ5dm" target="_blank">Try it here</a></small>
+					</section>
+					<section>
+						<h2 id="color-heading">Color</h2> 
+						<p><small class="text-muted">Multiple ways to handle colors in p5.js</small></p>
+						<small><ul> 
+							<li><a class="text-pink" href="https://p5js.org/reference/#/p5/color" target="_blank">Color Reference</a></li>
+							<li><a class="text-pink" href="https://p5js.org/reference/#/p5/colorMode" target="_blank">ColorMode Reference</a></li>
+						</ul></small>
+						<br/><br/>
+						<small><a class="text-white" href="https://programmingdesignsystems.com/color/color-models-and-color-spaces/index.html" target="_blank">📒 Color Models Color Spaces</a></small>
+					</section>
+					<section>
+						<h2>Variables</h2> 
+						<p><small class="text-muted">These are your new containers for values</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							let x = 5;
+							let y = x + 7;
+							print(y); // This will print-out, 12
+						</code></pre>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							//making a global variable
+							let x = 5;
+							function setup(){
+							  createCanvas(x*100, x*100);
+							}
+							function draw(){
+							  background(255);
+							  fill(10);
+							  circle(100, 100, x);
+							}
+						</code></pre>
+						<br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h2>Datatypes</h2> 
+						<p><small class="text-muted">Check reference</small></p>
+						<small>
+							<table>
+								<thead>
+									<tr>
+										<th>Datatype</th>
+										<th>Examples</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Number</td>
+										<td>1, 100000, 100.789</td>
+									</tr>
+									<tr>
+										<td>String</td>
+										<td>"a", "Hello, World", "Tuesday", "omg!"</td>
+									</tr>
+									<tr>
+										<td>Boolean</td>
+										<td>true, false</td>
+									</tr>
+									<tr>
+										<td>Array</td>
+										<td>nums=[1,4,2,43], alphabets=["o","m","g"]</td>
+									</tr>
+									<tr>
+										<td>Object</td>
+										<td>animal={"type":"dog", "eyes":2, "legs":4, "sound":"bark"};</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h2>Operators 1</h2> 
+						<p><small class="text-muted">Part 1; These let you perform arithmetic</small></p>
+						<small>
+							<table>
+								<thead>
+									<tr>
+										<th>Operator</th>
+										<th>Meaning</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>+</td>
+										<td>Addition</td>
+										<td>7 + 5</td>
+									</tr>
+									<tr>
+										<td>-</td>
+										<td>Subtraction</td>
+										<td>78 - 19</td>
+									</tr>
+									<tr>
+										<td>*</td>
+										<td>Multiplication</td>
+										<td>a * 4</td>
+									</tr>
+									<tr>
+										<td>/</td>
+										<td>Divide and get quotient</td>
+										<td>23 / b</td>
+									</tr>
+									<tr>
+										<td>%</td>
+										<td>Divide and get remainder</td>
+										<td>51 % 4</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h2>Operators 2</h2> 
+						<p><small class="text-muted">Part 2; These let you check relations</small></p>
+						<small>
+							<table>
+								<thead>
+									<tr>
+										<th>Operator</th>
+										<th>Meaning</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>=</td>
+										<td>To assign value</td>
+										<td>a = 3</td>
+									</tr>
+									<tr>
+										<td>==</td>
+										<td>Checking equality</td>
+										<td>d == 14</td>
+									</tr>
+									<tr>
+										<td>===</td>
+										<td>Checking strict equality</td>
+										<td>b === 42</td>
+									</tr>
+									<tr>
+										<td>!=</td>
+										<td>NOT equal to</td>
+										<td>10 != a</td>
+									</tr>
+									<tr>
+										<td>&lt;</td>
+										<td>Less than</td>
+										<td>23 &lt; b</td>
+									</tr>
+									<tr>
+										<td>&gt;</td>
+										<td>Greater than</td>
+										<td>c &gt; b</td>
+									</tr>
+									<tr>
+										<td>&lt;=</td>
+										<td>Lesser than or equal to</td>
+										<td>d &lt;= 12</td>
+									</tr>
+									<tr>
+										<td>&gt;=</td>
+										<td>Greater than or equal to</td>
+										<td>z &gt;= 300</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h2>Operators 3</h2> 
+						<p><small class="text-muted">Part 3; These let you check with logic</small></p>
+						<small>
+							<table>
+								<thead>
+									<tr>
+										<th>Operator</th>
+										<th>Meaning</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>									
+										<td>||</td>
+										<td>Logical OR</td>
+										<td>a&lt;10 || a===2.6</td>										
+									</tr>
+									<tr>
+										<td>&&</td>
+										<td>Logical AND</td>
+										<td>a === 10 && b === "OMG"</td>
+									</tr>
+									<tr>
+										<td>!</td>
+										<td>Logical NOT</td>
+										<td>!a</td>
+									</tr>
+								</tbody>
+							</table>
+						</small>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h2>Conditionals</h2> 
+						<p><small class="text-muted">Used to conditionally perform something</small></p>
+						<small>
+							<ul>
+								<li>if</li>
+								<li>else</li>
+								<li>else if</li>
+								<li>Ternary</li>
+								<li>Switch</li>
+							</ul>
+						</small>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h4>Conditionals - if/else</h4> 
+						<p><small class="text-muted">If(condition is true){do this} else{do this instead}</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							function draw(){
+							  background(255);
+							  if(x > 100){
+							   fill(255,100,240);
+							  }
+							  else{
+							   fill(30); 
+							  }
+							  circle(x, 100, 50);
+							}
+						</code></pre>
+						<br/><br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h4>Conditionals - if/ else-if /else</h4> 
+						<p><small class="text-muted">If(condition is true){do this} else if(this condition is true){do this} else{finally do this}</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							function draw(){
+							  background(255);
+							  if(x > 300){
+							   fill(255,100,240);
+							  }
+							  else if(x &lt; 100){
+							   fill(30,200,165);
+							  }
+							  else{
+							   fill(30); 
+							  }
+							  circle(x, 100, 50);
+							}
+						</code></pre>
+						<br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h4>Conditionals - Ternary</h4> 
+						<p><small class="text-muted">condition ? expr1 : expr2</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							function draw(){
+							  background(255);
+							  (x > 300) ? fill(240) : fill(50);
+							  circle(x, 100, 50);
+							}
+						</code></pre>
+						<br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+					<section>
+						<h4>Conditionals - Switch</h4> 
+						<p><small class="text-muted">switch, check cases and execute appropriately</small></p>
+						<pre><code class="lang-js" data-line-numbers data-trim data-noescape>
+							function draw(){
+							  background(255);
+							  switch(x){
+							   case 10:
+								fill(50);
+								break;
+							   case 50:
+								fill(100);
+								break;
+							   case 150:
+								fill(150);
+								break;
+							   default:
+							    fill(240); 
+							  }
+							  circle(x, 100, 50);
+							}
+						</code></pre>
+						<br/>
+						<small><a class="text-white" href="https://github.com/processing/p5.js/wiki/JavaScript-basics" target="_blank">📒 JavaScript Basics</a></small>
+					</section>
+				</section>
+				<section>
+					<h3>🏊<br/>Activity 1.2</h3>
+					<p><small class="text-muted">Submission details on the Blog</small></p>
+					<small><p>Create a sketch of size 600x300<br/>elements in the sketch should respond to<br/>the <span class="text-pink"> change of </span> <span class="text-green"><em>frameCount</em></span> or <span class="text-green"><em>mouse coordinates</em></span></p>
+					</small>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+		<script src="js/kd-script.js"></script>
+	</body>
+</html>
